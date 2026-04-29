@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Semantic Page Layout</title>
+  </head>
+  <body>
+    <header>
+      <h1>Interview Kit</h1>
+      <nav aria-label="Primary navigation">
+        <a href="#articles">Articles</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="articles-heading" id="articles">
+        <h2 id="articles-heading">Latest Articles</h2>
+        <article>
+          <h3>Semantic HTML</h3>
+          <p>Use elements that describe the meaning of the content.</p>
+        </article>
+      </section>
+
+      <aside aria-label="Related topics">
+        <h2>Related Topics</h2>
+        <ul>
+          <li>Accessibility</li>
+          <li>SEO</li>
+          <li>Performance</li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer id="contact">
+      <address>
+        Contact <a href="mailto:team@example.com">team@example.com</a>
+      </address>
+    </footer>
+  </body>
+</html>
+

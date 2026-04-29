@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skip Link</title>
+    <style>
+      .skip-link {
+        left: 1rem;
+        position: absolute;
+        top: -4rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+
+    <main id="content" tabindex="-1">
+      <h1>Dashboard</h1>
+      <p>Main content starts here.</p>
+    </main>
+  </body>
+</html>
+

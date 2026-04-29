@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Line Clamp</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .summary {
+        max-width: 32rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Line Clamp</h1>
+      <p class="summary">
+        CSS line clamping is commonly used for cards, previews, and search
+        results where the design needs a fixed number of visible text lines
+        without manually truncating the source content.
+      </p>
+    </main>
+  </body>
+</html>
+

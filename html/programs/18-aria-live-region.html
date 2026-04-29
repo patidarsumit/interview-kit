@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARIA Live Region</title>
+  </head>
+  <body>
+    <main>
+      <h1>Save Status</h1>
+      <button id="saveButton" type="button">Save</button>
+      <p id="status" aria-live="polite"></p>
+    </main>
+
+    <script>
+      const saveButton = document.querySelector('#saveButton');
+      const status = document.querySelector('#status');
+
+      saveButton.addEventListener('click', () => {
+        status.textContent = 'Saving...';
+
+        setTimeout(() => {
+          status.textContent = 'Saved successfully.';
+        }, 600);
+      });
+    </script>
+  </body>
+</html>
+

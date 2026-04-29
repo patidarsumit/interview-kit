@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Z Index Stacking Context</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .stage {
+        position: relative;
+        height: 14rem;
+        isolation: isolate;
+        border: 1px solid #d1d5db;
+      }
+
+      .box {
+        position: absolute;
+        width: 10rem;
+        height: 10rem;
+        display: grid;
+        place-items: center;
+        color: white;
+      }
+
+      .blue {
+        top: 1rem;
+        left: 1rem;
+        z-index: 1;
+        background: #2563eb;
+      }
+
+      .red {
+        top: 4rem;
+        left: 5rem;
+        z-index: 2;
+        background: #dc2626;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Z Index</h1>
+      <section class="stage">
+        <div class="box blue">z-index 1</div>
+        <div class="box red">z-index 2</div>
+      </section>
+    </main>
+  </body>
+</html>
+

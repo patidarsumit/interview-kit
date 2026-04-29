@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Element Card</title>
+  </head>
+  <body>
+    <main>
+      <h1>Web Component</h1>
+
+      <user-card>
+        <span slot="name">Sumit</span>
+        <span slot="role">Senior Engineer</span>
+      </user-card>
+    </main>
+
+    <script>
+      class UserCard extends HTMLElement {
+        constructor() {
+          super();
+
+          const root = this.attachShadow({ mode: 'open' });
+          root.innerHTML = `
+            <article>
+              <h2><slot name="name"></slot></h2>
+              <p><slot name="role"></slot></p>
+            </article>
+          `;
+        }
+      }
+
+      customElements.define('user-card', UserCard);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scroll Snap Carousel</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        max-width: 40rem;
+      }
+
+      .slide {
+        flex: 0 0 80%;
+        min-height: 12rem;
+        display: grid;
+        place-items: center;
+        scroll-snap-align: start;
+        background: #dbeafe;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Scroll Snap</h1>
+      <section class="carousel" aria-label="Featured slides">
+        <article class="slide">Slide 1</article>
+        <article class="slide">Slide 2</article>
+        <article class="slide">Slide 3</article>
+      </section>
+    </main>
+  </body>
+</html>
+

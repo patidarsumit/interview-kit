@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Variables Theme</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #111827;
+        --surface: #f3f4f6;
+        --primary: #2563eb;
+      }
+
+      [data-theme="dark"] {
+        --bg: #111827;
+        --text: #f9fafb;
+        --surface: #1f2937;
+        --primary: #60a5fa;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        padding: 2rem;
+      }
+
+      .card {
+        max-width: 28rem;
+        padding: 1rem;
+        background: var(--surface);
+      }
+
+      button {
+        background: var(--primary);
+        border: 0;
+        color: white;
+        padding: 0.75rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h1>Theming</h1>
+        <p>CSS custom properties cascade and can power themes.</p>
+        <button type="button">Primary action</button>
+      </section>
+    </main>
+  </body>
+</html>
+

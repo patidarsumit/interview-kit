@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Specificity And Cascade</title>
+    <style>
+      button {
+        background: #dc2626;
+      }
+
+      .primary {
+        background: #2563eb;
+      }
+
+      :where(.demo) button {
+        color: white;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      button {
+        border: 0;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo">
+      <h1>Specificity</h1>
+      <button class="primary" type="button">Class wins over element</button>
+    </main>
+  </body>
+</html>
+

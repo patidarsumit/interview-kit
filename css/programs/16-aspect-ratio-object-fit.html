@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aspect Ratio Object Fit</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .thumbnail {
+        width: min(100%, 32rem);
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #dbeafe;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Aspect Ratio</h1>
+      <img
+        class="thumbnail"
+        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900"
+        alt="Laptop showing code"
+      >
+    </main>
+  </body>
+</html>
+

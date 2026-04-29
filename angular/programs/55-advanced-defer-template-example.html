@@ -1,0 +1,16 @@
+@defer (on viewport; prefetch on idle) {
+  <app-sales-chart />
+} @placeholder (minimum 500ms) {
+  <section aria-label="Sales chart preview">
+    <p>Chart preview</p>
+  </section>
+} @loading (after 200ms; minimum 700ms) {
+  <section aria-live="polite">
+    <p>Loading chart...</p>
+  </section>
+} @error {
+  <section role="alert">
+    <p>Could not load chart.</p>
+  </section>
+}
+

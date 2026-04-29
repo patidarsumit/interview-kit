@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Center With Flexbox</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+
+      .viewport {
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+      }
+
+      .box {
+        padding: 2rem;
+        background: white;
+        border: 1px solid #d1d5db;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="viewport">
+      <section class="box">
+        <h1>Centered</h1>
+        <p>Flexbox centers this card horizontally and vertically.</p>
+      </section>
+    </main>
+  </body>
+</html>
+

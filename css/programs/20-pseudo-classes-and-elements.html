@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pseudo Classes And Elements</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      a:hover {
+        color: #2563eb;
+      }
+
+      a:focus-visible {
+        outline: 3px solid #f59e0b;
+        outline-offset: 3px;
+      }
+
+      p::first-letter {
+        color: #2563eb;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      ::selection {
+        background: #bfdbfe;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Pseudo Selectors</h1>
+      <p>Selectors can target state and generated parts of an element.</p>
+      <a href="#">Focusable link</a>
+    </main>
+  </body>
+</html>
+

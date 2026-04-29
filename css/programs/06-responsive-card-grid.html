@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Card Grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+      }
+
+      main {
+        width: min(100% - 2rem, 72rem);
+        margin-inline: auto;
+        padding-block: 2rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+        border: 1px solid #d1d5db;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Responsive Grid</h1>
+      <section class="cards">
+        <article class="card"><h2>HTML</h2><p>Semantics</p></article>
+        <article class="card"><h2>CSS</h2><p>Layout</p></article>
+        <article class="card"><h2>JS</h2><p>Behavior</p></article>
+      </section>
+    </main>
+  </body>
+</html>
+

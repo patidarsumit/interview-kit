@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sticky Header</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        padding: 1rem;
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .spacer {
+        min-height: 150vh;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Sticky Header</header>
+    <main>
+      <h1>Scroll</h1>
+      <p>The header sticks when it reaches the top.</p>
+      <div class="spacer"></div>
+    </main>
+  </body>
+</html>
+

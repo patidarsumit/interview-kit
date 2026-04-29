@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dialog Modal</title>
+  </head>
+  <body>
+    <main>
+      <h1>Delete Item</h1>
+      <button id="openDialog" type="button">Delete</button>
+
+      <dialog id="confirmDialog" aria-labelledby="dialogTitle">
+        <form method="dialog">
+          <h2 id="dialogTitle">Confirm delete</h2>
+          <p>This action cannot be undone.</p>
+          <button value="cancel">Cancel</button>
+          <button value="confirm">Delete</button>
+        </form>
+      </dialog>
+    </main>
+
+    <script>
+      const openDialog = document.querySelector('#openDialog');
+      const dialog = document.querySelector('#confirmDialog');
+
+      openDialog.addEventListener('click', () => {
+        dialog.showModal();
+      });
+
+      dialog.addEventListener('close', () => {
+        console.log(dialog.returnValue);
+      });
+    </script>
+  </body>
+</html>
+

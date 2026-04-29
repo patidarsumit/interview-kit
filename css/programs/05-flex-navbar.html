@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flex Navbar</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      a {
+        color: #111827;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <strong>Interview Kit</strong>
+      <nav class="links" aria-label="Primary navigation">
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+      </nav>
+    </header>
+  </body>
+</html>
+

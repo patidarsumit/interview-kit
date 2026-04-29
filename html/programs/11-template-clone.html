@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template Clone</title>
+  </head>
+  <body>
+    <main>
+      <h1>Team</h1>
+      <section id="team" aria-label="Team members"></section>
+
+      <template id="memberTemplate">
+        <article>
+          <h2></h2>
+          <p></p>
+        </article>
+      </template>
+    </main>
+
+    <script>
+      const members = [
+        { name: 'Amit', role: 'Frontend Engineer' },
+        { name: 'Sumit', role: 'Senior Engineer' },
+      ];
+
+      const team = document.querySelector('#team');
+      const template = document.querySelector('#memberTemplate');
+
+      members.forEach((member) => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector('h2').textContent = member.name;
+        clone.querySelector('p').textContent = member.role;
+        team.append(clone);
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Container Query Card</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem;
+      }
+
+      .wrapper {
+        container-type: inline-size;
+        max-width: 50rem;
+      }
+
+      .card {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid #d1d5db;
+      }
+
+      .media {
+        min-height: 8rem;
+        background: #bfdbfe;
+      }
+
+      @container (min-width: 36rem) {
+        .card {
+          grid-template-columns: 12rem 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <article class="card">
+        <div class="media" aria-hidden="true"></div>
+        <div>
+          <h1>Container Query</h1>
+          <p>The card layout responds to its container, not the viewport.</p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
+

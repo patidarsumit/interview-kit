@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Images</title>
+  </head>
+  <body>
+    <main>
+      <h1>Responsive Product Image</h1>
+
+      <picture>
+        <source media="(max-width: 600px)" srcset="images/product-mobile.jpg">
+        <source media="(min-width: 601px)" srcset="images/product-desktop.jpg">
+        <img
+          src="images/product-desktop.jpg"
+          alt="Analytics dashboard on a laptop"
+          width="960"
+          height="540"
+          loading="lazy"
+          decoding="async"
+        >
+      </picture>
+    </main>
+  </body>
+</html>
+

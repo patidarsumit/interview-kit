@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-interview-kit-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
+

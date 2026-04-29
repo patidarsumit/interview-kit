@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Media Query Responsive</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+      }
+
+      .layout {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .panel {
+        padding: 1rem;
+        background: #eff6ff;
+      }
+
+      @media (min-width: 48rem) {
+        .layout {
+          grid-template-columns: 2fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>Main Content</h1>
+      </section>
+      <aside class="panel">Aside</aside>
+    </main>
+  </body>
+</html>
+
