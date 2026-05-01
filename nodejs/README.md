@@ -166,6 +166,9 @@ If the event loop is blocked, all requests suffer.
 35. [Senior Interview Questions](./topics/35-senior-interview-questions.md)  
     Quick revision file for high-value Node.js interview questions.
 
+36. [Microservices, Redis, And RabbitMQ](./topics/36-microservices-redis-rabbitmq.md)  
+    Explains service boundaries, sync vs async communication, Redis cache/pub-sub use cases, RabbitMQ queues, retries, dead-letter queues, idempotency, and the outbox pattern.
+
 ## Common Coding Programs
 
 ### Foundation And Core APIs
@@ -251,6 +254,10 @@ For experienced developers:
 - Connection pooling and transactions
 - Redis caching and invalidation
 - Queue retries and idempotency
+- Microservices communication patterns
+- Redis vs RabbitMQ
+- RabbitMQ acknowledgements and dead-letter queues
+- Outbox pattern and eventual consistency
 - Graceful shutdown
 - Logging, tracing, and correlation IDs
 - Debugging memory leaks and slow APIs
@@ -271,4 +278,3 @@ For every topic, practice explaining:
 
 - Node.js releases and LTS status: https://nodejs.org/en/about/previous-releases
 - Node.js release blog: https://nodejs.org/en/blog/release
-

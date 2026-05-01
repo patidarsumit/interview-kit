@@ -54,6 +54,7 @@ Coding examples are in [programs](./programs).
 44. [Performance Debugging Playbook](./topics/44-performance-debugging-playbook.md)
 45. [Architecture Case Studies](./topics/45-architecture-case-studies.md)
 46. [Scenario-Based Senior Angular Q&A](./topics/46-scenario-based-senior-qa.md)
+47. [Angular Microfrontends](./topics/47-microfrontends.md)
 
 ## Senior Preparation Rule
 
