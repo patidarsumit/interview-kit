@@ -632,6 +632,493 @@ Latest driver location can live in Redis because it changes frequently.
 
 Ride history should live in durable database because it is business-critical.
 
+## 8. Video Streaming System
+
+Problem:
+
+Design a platform like YouTube or Netflix where users can upload, watch, search, and stream videos.
+
+### Requirements
+
+Functional:
+
+- user can upload video
+- user can watch video
+- support different video qualities
+- search videos
+- like/comment videos
+- show recommendations
+
+Non-functional:
+
+- playback should start quickly
+- buffering should be low
+- system should support very high read traffic
+- uploaded videos must be processed asynchronously
+- videos should be available globally
+
+### High-Level Design
+
+```text
+client
+  |
+  v
+API service
+  |
+  +--> metadata database
+  +--> object storage
+  +--> encoding queue
+          |
+          v
+       transcoding workers
+          |
+          v
+       processed video storage
+          |
+          v
+         CDN
+```
+
+### Upload Flow
+
+```text
+1. User requests upload.
+2. Backend creates signed upload URL.
+3. Client uploads raw video to object storage.
+4. Backend stores video metadata with status PROCESSING.
+5. Encoding job is pushed to queue.
+6. Worker transcodes video into multiple resolutions.
+7. Worker stores processed files.
+8. Video status becomes READY.
+```
+
+### Playback Flow
+
+```text
+1. User opens video page.
+2. Client fetches video metadata.
+3. Client receives playback manifest.
+4. Video chunks are served from CDN.
+5. Player adapts quality based on network speed.
+```
+
+### Important Concepts
+
+Use object storage for raw and processed videos.
+
+Use CDN because video traffic is huge and global.
+
+Use adaptive bitrate streaming, such as HLS or DASH, so the player can switch quality depending on network speed.
+
+Use queue workers because encoding is CPU-heavy and should not block upload request.
+
+### Tradeoffs
+
+Uploading video can be fast, but video availability may be delayed while processing finishes.
+
+That is acceptable because encoding takes time.
+
+## 9. Web Crawler
+
+Problem:
+
+Design a web crawler that visits web pages, extracts links/content, and builds data for search indexing.
+
+### Requirements
+
+Functional:
+
+- crawl web pages
+- extract links
+- avoid duplicate URLs
+- respect robots.txt
+- store page content or metadata
+- retry failed pages
+
+Non-functional:
+
+- scalable crawling
+- polite crawling so websites are not overloaded
+- duplicate detection
+- fault tolerance
+
+### High-Level Design
+
+```text
+URL frontier queue
+  |
+  v
+crawler workers
+  |
+  +--> DNS/HTTP fetcher
+  +--> robots.txt checker
+  +--> HTML parser
+  +--> deduplication service
+  +--> content storage
+  +--> indexer queue
+```
+
+### Flow
+
+```text
+1. Seed URLs are added to frontier.
+2. Worker picks a URL.
+3. Worker checks robots.txt and crawl delay.
+4. Worker fetches page content.
+5. Parser extracts links and metadata.
+6. Deduplication filters already-seen URLs.
+7. New URLs go back to frontier.
+8. Content goes to indexing pipeline.
+```
+
+### Important Concepts
+
+URL frontier is the queue of URLs waiting to be crawled.
+
+Deduplication can use hashing or Bloom filters.
+
+Crawler must be polite:
+
+- limit requests per domain
+- respect robots.txt
+- retry with backoff
+- avoid infinite crawling traps
+
+### Tradeoffs
+
+More crawler workers increase speed but can overload websites if rate limits are not enforced.
+
+Good crawler design balances coverage, freshness, and politeness.
+
+## 10. Music Streaming System
+
+Problem:
+
+Design a music streaming system like Spotify.
+
+### Requirements
+
+Functional:
+
+- user can search songs
+- user can play songs
+- user can create playlists
+- user can like songs
+- system recommends music
+- offline download may be supported
+
+Non-functional:
+
+- playback should start quickly
+- audio should stream smoothly
+- system should scale globally
+- recommendations can update asynchronously
+
+### High-Level Design
+
+```text
+client app
+  |
+  v
+API gateway
+  |
+  +--> user service
+  +--> catalog service
+  +--> playlist service
+  +--> recommendation service
+  +--> streaming service
+  +--> CDN/object storage
+```
+
+### Playback Flow
+
+```text
+1. User selects song.
+2. Client requests playback metadata.
+3. Backend checks subscription/rights.
+4. Backend returns streaming URL or manifest.
+5. Client streams audio chunks from CDN.
+6. Playback events are sent for analytics/recommendations.
+```
+
+### Data Model
+
+```text
+users
+songs
+albums
+artists
+playlists
+playlist_songs
+listening_history
+likes
+```
+
+### Important Concepts
+
+Audio files should be stored in object storage and served through CDN.
+
+Search may use Elasticsearch/OpenSearch.
+
+Recommendations can be computed asynchronously from listening history.
+
+Playback authorization matters because licensing/subscription rules decide whether a user can play a song.
+
+### Tradeoffs
+
+Recommendations do not need strong consistency.
+
+Playback authorization and subscription checks should be correct.
+
+## 11. File Sharing And Sync System
+
+Problem:
+
+Design a file sharing and sync system like Dropbox or Google Drive.
+
+### Requirements
+
+Functional:
+
+- upload file
+- download file
+- share file/folder
+- sync changes across devices
+- support file versions
+- search files by metadata/name
+
+Non-functional:
+
+- files must be durable
+- large files should upload reliably
+- private files must be secure
+- sync should be efficient
+
+### High-Level Design
+
+```text
+client
+  |
+  v
+metadata API
+  |
+  +--> metadata database
+  +--> object storage
+  +--> sync notification service
+  +--> processing queue
+```
+
+### Upload Flow
+
+```text
+1. Client asks backend for upload permission.
+2. Backend creates file metadata record.
+3. Backend returns signed upload URL.
+4. Client uploads file directly to object storage.
+5. Storage event notifies backend.
+6. Backend marks file as uploaded.
+7. Sync notification is sent to other devices.
+```
+
+### Sync Flow
+
+```text
+1. Device starts with last sync token.
+2. Backend returns changes since that token.
+3. Device downloads missing file metadata/content.
+4. Device sends local changes to backend.
+5. Conflicts are resolved using versioning rules.
+```
+
+### Important Concepts
+
+Store file metadata in database.
+
+Store file content in object storage.
+
+Use chunked upload for large files.
+
+Use versioning to recover old file versions.
+
+Use WebSockets, push notifications, or polling for sync notifications.
+
+### Tradeoffs
+
+Real-time sync is convenient but harder to implement than manual refresh.
+
+Conflict resolution is difficult when two devices edit the same file offline.
+
+## 12. Food Delivery System
+
+Problem:
+
+Design a food delivery system like Swiggy, Zomato, DoorDash, or Uber Eats.
+
+### Requirements
+
+Functional:
+
+- user can browse restaurants
+- user can place order
+- restaurant can accept/reject order
+- delivery partner can be assigned
+- user can track order
+- payment and refunds
+
+Non-functional:
+
+- restaurant listing should be fast
+- order status must be reliable
+- live tracking should be near real time
+- payment must be safe
+
+### High-Level Design
+
+```text
+customer app
+restaurant app
+delivery app
+  |
+  v
+API gateway
+  |
+  +--> restaurant service
+  +--> menu service
+  +--> order service
+  +--> payment service
+  +--> delivery assignment service
+  +--> location service
+  +--> notification service
+```
+
+### Order Flow
+
+```text
+1. User selects restaurant and items.
+2. Backend validates menu items and price.
+3. Payment is authorized or collected.
+4. Order is created with PLACED status.
+5. Restaurant accepts order.
+6. Delivery partner is assigned.
+7. User receives live status and location updates.
+8. Order is delivered.
+```
+
+### Important Concepts
+
+Use cache for restaurant/menu reads.
+
+Use database transactions for order/payment state.
+
+Use queue for notifications.
+
+Use Redis/geospatial index for nearby delivery partners.
+
+Use WebSocket or push notifications for live status updates.
+
+### Tradeoffs
+
+Menu browsing can be eventually consistent.
+
+Payment/order state must be strongly controlled.
+
+Live location can be stored temporarily in Redis, while completed delivery history belongs in durable database.
+
+## 13. Movie Ticket Booking System
+
+Problem:
+
+Design a system like BookMyShow where users can search shows and book seats.
+
+### Requirements
+
+Functional:
+
+- search movies/events
+- view theaters and showtimes
+- view seat layout
+- select seats
+- pay for booking
+- receive ticket
+
+Non-functional:
+
+- no double booking
+- seat hold should expire
+- payment should be reliable
+- system should handle high traffic for popular shows
+
+### High-Level Design
+
+```text
+client
+  |
+  v
+API gateway
+  |
+  +--> catalog service
+  +--> show service
+  +--> seat inventory service
+  +--> booking service
+  +--> payment service
+  +--> notification service
+```
+
+### Seat Booking Flow
+
+```text
+1. User opens show seat map.
+2. User selects seats.
+3. Backend places temporary hold for selected seats.
+4. Hold expires after a short time, such as 5 minutes.
+5. User completes payment.
+6. Booking is confirmed.
+7. Ticket is generated.
+8. Confirmation notification is sent.
+```
+
+### Data Model
+
+```text
+movies
+theaters
+screens
+shows
+seats
+show_seats
+bookings
+payments
+```
+
+### Preventing Double Booking
+
+Use:
+
+- database transaction
+- unique constraint on `show_id + seat_id`
+- temporary seat hold with expiry
+- optimistic or pessimistic locking
+
+Example:
+
+```text
+unique(show_id, seat_id, confirmed_booking)
+```
+
+or maintain `show_seats` with status:
+
+```text
+AVAILABLE
+HELD
+BOOKED
+```
+
+### Tradeoffs
+
+Holding seats improves UX but temporarily reduces availability.
+
+Short hold time reduces blocked inventory but pressures users to finish checkout quickly.
+
 ## How To Practice
 
 For every example, practice saying:

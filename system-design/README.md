@@ -23,6 +23,7 @@ It is not only about drawing boxes. A good system design answer explains:
 3. [Frontend System Design](./topics/03-frontend-system-design.md)
 4. [Common Interview System Design Examples](./topics/04-common-interview-examples.md)
 5. [Core System Design Concepts Deep Dive](./topics/05-core-system-design-concepts.md)
+6. [HLD And LLD Interview Guide](./topics/06-hld-lld-interview-guide.md)
 
 ## How To Answer A System Design Interview
 
@@ -89,3 +90,6 @@ Good design is choosing the simplest architecture that satisfies the requirement
 ## External Reference
 
 - AlgoMaster Top 30 System Design Concepts: https://algomaster.io/learn/system-design/top-30-system-design-concepts
+- Medium Top 10 System Designs Interview Guide: https://medium.com/@akshatsharma0610/top-10-system-designs-interview-guide-8eb7af66b6e2
+- GeeksforGeeks HLD Interview Questions: https://www.geeksforgeeks.org/system-design/high-level-design-hld-interview-questions/
+- GeeksforGeeks LLD Interview Questions: https://www.geeksforgeeks.org/system-design/top-low-level-system-designlld-interview-questions-2024/
