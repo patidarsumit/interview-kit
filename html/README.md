@@ -44,8 +44,9 @@ Also read:
 32. Angular forms in templates
 33. Angular accessibility
 34. Angular performance in templates
-35. Senior interview questions
-36. Best practices checklist
+35. JavaScript DOM access
+36. Senior interview questions
+37. Best practices checklist
 
 ## 1. HTML Fundamentals
 
@@ -1037,7 +1038,322 @@ Prefer:
 }
 ```
 
-## 35. Senior Interview Questions
+## 35. JavaScript DOM Access
+
+JavaScript can read HTML elements, update their content or styles, change form values, add new children, remove children, and collect values from lists.
+
+Example HTML:
+
+```html
+<h2 id="title">Contact</h2>
+
+<input id="nameInput" type="text" value="Sumit">
+<button id="saveButton" type="button">Save</button>
+
+<ul id="skillsList">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+<div id="messageBox"></div>
+```
+
+### Access One Element
+
+Use `querySelector` for CSS-style selection.
+
+```js
+const title = document.querySelector('#title');
+const input = document.querySelector('#nameInput');
+const saveButton = document.querySelector('#saveButton');
+```
+
+Common selectors:
+
+```js
+document.querySelector('input');        // first input tag
+document.querySelector('#nameInput');   // element with id
+document.querySelector('.error');       // first element with class
+document.querySelector('[required]');   // first required element
+```
+
+You can also use:
+
+```js
+const input = document.getElementById('nameInput');
+```
+
+### Access Many Elements
+
+Use `querySelectorAll` when you need a list of matching elements.
+
+```js
+const allInputs = document.querySelectorAll('input');
+const allListItems = document.querySelectorAll('#skillsList li');
+```
+
+Loop over them:
+
+```js
+allListItems.forEach((item) => {
+  console.log(item.textContent);
+});
+```
+
+### Read And Update Text
+
+Use `textContent` for plain text.
+
+```js
+const title = document.querySelector('#title');
+
+console.log(title.textContent);
+title.textContent = 'Contact Form';
+```
+
+Use `innerHTML` only when you intentionally need HTML markup.
+
+```js
+const messageBox = document.querySelector('#messageBox');
+messageBox.innerHTML = '<strong>Saved successfully</strong>';
+```
+
+Senior note:
+
+Do not put untrusted user input into `innerHTML`. Use `textContent` for user-provided text.
+
+### Read And Update Input Values
+
+Use `.value` for form controls such as `input`, `textarea`, and `select`.
+
+```js
+const input = document.querySelector('#nameInput');
+
+console.log(input.value);
+input.value = 'Amit';
+```
+
+Read value on button click:
+
+```js
+const input = document.querySelector('#nameInput');
+const saveButton = document.querySelector('#saveButton');
+
+saveButton.addEventListener('click', () => {
+  console.log(input.value);
+});
+```
+
+Other form properties:
+
+```js
+const checkbox = document.querySelector('#subscribe');
+console.log(checkbox.checked);
+checkbox.checked = true;
+
+const select = document.querySelector('#country');
+console.log(select.value);
+select.value = 'IN';
+```
+
+### Update Style From JavaScript
+
+Use the `style` property for direct inline styles.
+
+```js
+const title = document.querySelector('#title');
+
+title.style.color = 'green';
+title.style.backgroundColor = '#f0fdf4';
+title.style.fontSize = '24px';
+```
+
+Prefer classes for reusable styling.
+
+```css
+.success {
+  color: green;
+  background-color: #f0fdf4;
+}
+```
+
+```js
+const messageBox = document.querySelector('#messageBox');
+
+messageBox.classList.add('success');
+messageBox.classList.remove('error');
+messageBox.classList.toggle('hidden');
+```
+
+### Update Attributes
+
+Use `setAttribute`, `getAttribute`, and `removeAttribute`.
+
+```js
+const input = document.querySelector('#nameInput');
+
+input.setAttribute('placeholder', 'Enter your name');
+console.log(input.getAttribute('type'));
+input.removeAttribute('disabled');
+```
+
+For common DOM properties, direct property access is also fine.
+
+```js
+input.disabled = true;
+input.required = true;
+```
+
+### Add Children
+
+Create an element with `document.createElement`, set its text or attributes, then append it.
+
+```js
+const skillsList = document.querySelector('#skillsList');
+
+const newItem = document.createElement('li');
+newItem.textContent = 'Accessibility';
+
+skillsList.appendChild(newItem);
+```
+
+Modern syntax:
+
+```js
+skillsList.append(newItem);
+```
+
+Add multiple children:
+
+```js
+const skills = ['Forms', 'SEO', 'Performance'];
+const skillsList = document.querySelector('#skillsList');
+
+skills.forEach((skill) => {
+  const item = document.createElement('li');
+  item.textContent = skill;
+  skillsList.append(item);
+});
+```
+
+### Delete Children
+
+Remove one element:
+
+```js
+const firstItem = document.querySelector('#skillsList li');
+firstItem.remove();
+```
+
+Remove the last child:
+
+```js
+const skillsList = document.querySelector('#skillsList');
+
+if (skillsList.lastElementChild) {
+  skillsList.lastElementChild.remove();
+}
+```
+
+Remove all children:
+
+```js
+const skillsList = document.querySelector('#skillsList');
+skillsList.replaceChildren();
+```
+
+Older approach:
+
+```js
+while (skillsList.firstChild) {
+  skillsList.removeChild(skillsList.firstChild);
+}
+```
+
+### Access A List And Get Text Values
+
+Convert list item text into an array.
+
+```js
+const items = document.querySelectorAll('#skillsList li');
+
+const values = Array.from(items).map((item) => item.textContent.trim());
+
+console.log(values);
+// ['HTML', 'CSS', 'JavaScript']
+```
+
+Get values from many inputs:
+
+```html
+<input class="skill-input" value="HTML">
+<input class="skill-input" value="CSS">
+<input class="skill-input" value="JavaScript">
+```
+
+```js
+const inputs = document.querySelectorAll('.skill-input');
+
+const values = Array.from(inputs).map((input) => input.value.trim());
+
+console.log(values);
+// ['HTML', 'CSS', 'JavaScript']
+```
+
+### Complete Small Example
+
+```html
+<input id="skillInput" type="text" placeholder="Enter skill">
+<button id="addSkillButton" type="button">Add</button>
+<ul id="skillsList"></ul>
+```
+
+```js
+const skillInput = document.querySelector('#skillInput');
+const addSkillButton = document.querySelector('#addSkillButton');
+const skillsList = document.querySelector('#skillsList');
+
+addSkillButton.addEventListener('click', () => {
+  const skill = skillInput.value.trim();
+
+  if (skill === '') {
+    skillInput.style.borderColor = 'red';
+    return;
+  }
+
+  const item = document.createElement('li');
+  item.textContent = skill;
+
+  const deleteButton = document.createElement('button');
+  deleteButton.type = 'button';
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    item.remove();
+  });
+
+  item.append(' ', deleteButton);
+  skillsList.append(item);
+
+  skillInput.value = '';
+  skillInput.style.borderColor = '';
+});
+```
+
+Quick interview checklist:
+
+- `querySelector` gets the first matching element.
+- `querySelectorAll` gets all matching elements.
+- `textContent` reads or updates text.
+- `value` reads or updates form values.
+- `style` updates inline styles.
+- `classList` adds, removes, or toggles CSS classes.
+- `createElement` creates a new element.
+- `append` or `appendChild` adds children.
+- `remove` deletes an element.
+- `Array.from(nodeList).map(...)` converts DOM lists into data arrays.
+
+## 36. Senior Interview Questions
 
 ### Why is semantic HTML important?
 
@@ -1079,7 +1395,7 @@ Unsafe HTML injection, weak CSP, iframe risks, `target="_blank"` without `rel`, 
 
 They understand semantics, browser behavior, accessibility, performance, SEO, framework output, and long-term maintainability.
 
-## 36. Best Practices Checklist
+## 37. Best Practices Checklist
 
 Use:
 
@@ -1115,4 +1431,3 @@ Avoid:
 Senior closing line:
 
 > Great HTML is not basic. It is the foundation that decides whether an app is accessible, crawlable, fast, secure, and maintainable.
-
