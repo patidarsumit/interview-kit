@@ -55,6 +55,7 @@ Coding examples are in [programs](./programs).
 45. [Architecture Case Studies](./topics/45-architecture-case-studies.md)
 46. [Scenario-Based Senior Angular Q&A](./topics/46-scenario-based-senior-qa.md)
 47. [Angular Microfrontends](./topics/47-microfrontends.md)
+48. [Dynamic Components](./topics/48-dynamic-components.md)
 
 ## Senior Preparation Rule
 

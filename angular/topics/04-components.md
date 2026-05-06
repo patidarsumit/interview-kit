@@ -73,6 +73,14 @@ Child components emit events up.
 
 Services handle shared logic and cross-component coordination.
 
+## Dynamic Components
+
+Sometimes the component type is selected at runtime, such as dashboard widgets, modal bodies, CMS sections, or plugin-style UI.
+
+Angular supports this with `NgComponentOutlet` for declarative dynamic rendering and `ViewContainerRef.createComponent()` for programmatic rendering.
+
+For details, see [Dynamic Components](./48-dynamic-components.md).
+
 ## Smart vs Presentational Components
 
 Smart component:
@@ -112,4 +120,3 @@ The DOM element that matches the component selector.
 ### What are standalone components?
 
 Components that declare their own dependencies through `imports` instead of being declared in an NgModule.
-

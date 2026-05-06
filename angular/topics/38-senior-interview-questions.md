@@ -52,6 +52,14 @@ A decorator for binding properties, attributes, classes, or styles on the host e
 
 A modern composition feature for applying directive behavior to a component or directive host.
 
+### What is a dynamic component?
+
+A component created at runtime instead of being written directly in the template.
+
+### `NgComponentOutlet` vs `ViewContainerRef.createComponent()`?
+
+`NgComponentOutlet` is declarative and template-based. `ViewContainerRef.createComponent()` is programmatic and gives more control over insertion, inputs, outputs, and cleanup.
+
 ## DI
 
 ### What is hierarchical dependency injection?

@@ -90,6 +90,14 @@ router.navigate(['/users'], {
 }
 ```
 
+## Routing vs Dynamic Components
+
+Use a route when the URL should represent a screen or navigable state.
+
+Use a dynamic component when part of the current screen changes at runtime without route navigation, such as a modal body, dashboard widget, or plugin panel.
+
+For runtime component rendering, see [Dynamic Components](./48-dynamic-components.md).
+
 ## Senior Best Practices
 
 - lazy load route features
