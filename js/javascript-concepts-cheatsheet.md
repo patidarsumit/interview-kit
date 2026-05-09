@@ -200,6 +200,77 @@ const boundGreet = greet.bind(user);
 boundGreet('Delhi'); // Sumit from Delhi
 ```
 
+Difference:
+
+```text
+call immediately invokes a function and passes arguments one by one.
+apply immediately invokes a function and passes arguments as an array.
+bind does not immediately invoke. It returns a new function with fixed this and optional preset arguments.
+```
+
+Interview answer:
+
+```text
+bind returns a new function with this fixed. apply calls the function immediately with this and arguments as an array. call also calls immediately, but arguments are passed separately.
+```
+
+## Tight Coupling Vs Loose Coupling
+
+JavaScript itself is flexible. Code can be tightly coupled or loosely coupled depending on how we design it.
+
+Tightly coupled means one module depends too much on another module's internal details.
+
+Bad:
+
+```js
+const paymentService = {
+  process() {
+    console.log('processing card payment');
+  },
+};
+
+function checkout() {
+  // checkout directly depends on this exact object and method.
+  paymentService.process();
+}
+```
+
+Loosely coupled means code depends on a clear contract or input, not internal implementation.
+
+Better:
+
+```js
+function checkout(paymentProcessor) {
+  paymentProcessor.process();
+}
+
+checkout({
+  process() {
+    console.log('processing card payment');
+  },
+});
+```
+
+Why loose coupling is better:
+
+- easier testing
+- easier replacement
+- easier reuse
+- fewer side effects
+- less fragile code
+
+React example:
+
+```text
+A Button component that receives label and onClick through props is loosely coupled. A component that directly modifies another component's internal state is tightly coupled.
+```
+
+Interview answer:
+
+```text
+JavaScript is not automatically tightly or loosely coupled. Coupling depends on architecture. We can write loosely coupled JavaScript by using modules, function parameters, dependency injection, events, clear APIs, and composition instead of directly depending on internal implementation.
+```
+
 ## Closure
 
 A closure is when an inner function remembers variables from its outer function even after the outer function has finished.

@@ -238,6 +238,53 @@ React is a JavaScript library for building component-based user interfaces.
 
 It helps developers build state-driven UI without manually updating the DOM everywhere.
 
+### Why is React efficient?
+
+React is efficient because it lets developers describe UI from state, then React calculates what needs to change and updates the real DOM in a controlled way.
+
+Interview answer:
+
+```text
+React is efficient because it uses declarative rendering, reconciliation, batched updates, and targeted DOM commits. When state changes, React calculates the next UI, compares it with the previous UI, and updates only the necessary parts of the DOM.
+```
+
+Important senior point:
+
+```text
+React is not fast only because of the Virtual DOM. Real performance also depends on state ownership, component boundaries, stable keys, avoiding unnecessary re-renders, bundle size, memoization where needed, and measuring bottlenecks.
+```
+
+### How does React work internally?
+
+High-level flow:
+
+```text
+State or props change
+  -> React calls component functions
+  -> React creates a new React element tree
+  -> React compares old tree and new tree
+  -> React decides what changed
+  -> React commits required DOM updates
+  -> browser paints the UI
+```
+
+Important terms:
+
+| Term | Meaning |
+| --- | --- |
+| React element | Plain object that describes UI |
+| Render phase | React calls components and calculates next UI |
+| Reconciliation | React compares previous and next UI tree |
+| Fiber | React's internal data structure for organizing and scheduling work |
+| Commit phase | React applies actual changes to the DOM |
+| Batching | React groups multiple state updates to reduce extra renders |
+
+Interview answer:
+
+```text
+Internally, when state or props change, React renders the component tree again to create a new element tree. Then reconciliation compares it with the previous tree. React's Fiber architecture helps organize and schedule this work. In the commit phase, React applies the required DOM changes and runs effects. A render does not always mean the DOM changed; React commits only necessary updates.
+```
+
 ### What does "UI is a function of state" mean?
 
 The rendered UI should be determined by current props and state.
@@ -249,4 +296,3 @@ No. React is a UI library. Frameworks such as Next.js add routing, server render
 ### Why is one-way data flow useful?
 
 It makes state changes easier to trace because data flows from parent to child and child components communicate through callbacks.
-
