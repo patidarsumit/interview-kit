@@ -31,6 +31,7 @@ Karat's official candidate page describes a 60-minute interview with intro, disc
 5. [05-city-l1-round-sheet.md](./05-city-l1-round-sheet.md)
 6. [06-city-l2-interview-prep.md](./06-city-l2-interview-prep.md)
 7. [07-all-behavioral-managerial-questions.md](./07-all-behavioral-managerial-questions.md)
+8. [08-tomorrow-l2-master-answer-bank.md](./08-tomorrow-l2-master-answer-bank.md)
 
 ## L2 Round Expectation
 

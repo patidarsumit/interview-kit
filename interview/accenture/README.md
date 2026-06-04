@@ -49,18 +49,19 @@ Public Accenture interview reports for Angular roles commonly mention:
 
 Read in this order:
 
-1. [01-final-interview-strategy.md](./01-final-interview-strategy.md)
-2. [02-jd-breakdown-and-expectations.md](./02-jd-breakdown-and-expectations.md)
-3. [03-angular-must-prepare.md](./03-angular-must-prepare.md)
-4. [04-angular-scenario-answers.md](./04-angular-scenario-answers.md)
-5. [05-project-deep-dive-template.md](./05-project-deep-dive-template.md)
-6. [06-managerial-and-hr-questions.md](./06-managerial-and-hr-questions.md)
-7. [07-aem-react-node-adjacent-prep.md](./07-aem-react-node-adjacent-prep.md)
-8. [08-testing-devsecops-monitoring-agile.md](./08-testing-devsecops-monitoring-agile.md)
-9. [09-coding-and-js-round-prep.md](./09-coding-and-js-round-prep.md)
-10. [10-last-day-revision-checklist.md](./10-last-day-revision-checklist.md)
-11. [11-resume-based-answer-samples.md](./11-resume-based-answer-samples.md)
-12. [WCAG Accessibility Angular Cheat Sheet](./wcag-accessibility/README.md)
+1. [FINAL-README.md](./FINAL-README.md)
+2. [01-final-interview-strategy.md](./01-final-interview-strategy.md)
+3. [02-jd-breakdown-and-expectations.md](./02-jd-breakdown-and-expectations.md)
+4. [03-angular-must-prepare.md](./03-angular-must-prepare.md)
+5. [04-angular-scenario-answers.md](./04-angular-scenario-answers.md)
+6. [05-project-deep-dive-template.md](./05-project-deep-dive-template.md)
+7. [06-managerial-and-hr-questions.md](./06-managerial-and-hr-questions.md)
+8. [07-aem-react-node-adjacent-prep.md](./07-aem-react-node-adjacent-prep.md)
+9. [08-testing-devsecops-monitoring-agile.md](./08-testing-devsecops-monitoring-agile.md)
+10. [09-coding-and-js-round-prep.md](./09-coding-and-js-round-prep.md)
+11. [10-last-day-revision-checklist.md](./10-last-day-revision-checklist.md)
+12. [11-resume-based-answer-samples.md](./11-resume-based-answer-samples.md)
+13. [WCAG Accessibility Angular Cheat Sheet](./wcag-accessibility/README.md)
 
 ## Your Positioning
 
