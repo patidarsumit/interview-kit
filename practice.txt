@@ -1,1 +1,0 @@
-Angular schematics are code generators used by Angular CLI to create or modify files in a standard way. For example, ng generate component runs a schematic that creates component files and updates project configuration when needed.

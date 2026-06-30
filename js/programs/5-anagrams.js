@@ -15,3 +15,20 @@ function findAnagrams(s, p) {
 const s = "cbaebabacd",
   p = "abc";
 console.log(findAnagrams(s, p)); // Output: [0, 6]
+
+// function findAnagrams(str, s) {
+//     const result = [];
+//     const sortedS = s.split('').sort().join('');
+
+//     for(let i= 0; i<=str.length; i++) {
+//         const sub = str.substring(i, i+ s.length)
+
+//         if(sub.split('').sort().join('') === sortedS) {
+//             result.push(i);
+//         }
+//     }
+
+//     return result;
+// }
+
+// console.log(findAnagrams("cbaebabacd", "abc")); // [0, 6]
