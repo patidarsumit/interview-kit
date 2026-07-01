@@ -103,3 +103,61 @@ HTML & CSS
 ✅ Block vs Inline Elements
 ✅ CSS Specificity
 ✅ Accessibility (ARIA, Keyboard Navigation)
+
+
+1. What is ngOnInit()?
+2. Explain @ViewChild and @ViewChildren.
+3. Explain ViewChild and ViewChildren from the rendering perspective.
+4. Do ViewChild and ViewChildren exist after ngAfterViewInit()?
+5. What are Promises in JavaScript?
+6. Find pairs whose sum is 10 in JavaScript.
+7. Explain the Set-based pair-finding program.
+8. Explain the pair-finding logic verbally.
+9. What is the output of:
+let arr = [1,2,3];
+arr[10] = 5;
+10. Explain why arr.length becomes 11.
+11. What is the output of:
+'5' + 1
+'5' - 1
+'5' + true
+'5' - true
+
+12. What is Subject in Angular?
+13. Types of Subjects.
+14. Difference between Observable and Subject.
+15. Pass data from child to parent component in Angular 11. with example
+16. Explain Auth Guards in Angular.
+17. Different types of Route Guards (CanActivate, CanActivateChild, CanDeactivate, CanLoad).
+18. What are RxJS operators?
+19. Explain forkJoin().
+20. What happens in forkJoin() if one API returns 500 and others return 200?
+21. Difference between switchMap, mergeMap, concatMap, exhaustMap.
+22. Which RxJS operator is used in Google Search autocomplete?
+23. Difference between display: none and visibility: hidden.
+24. What is ApplicationRef.tick() in Angular?
+25. What is tick() in Angular unit testing?
+26. What is TestBed in Angular unit testing?
+
+
+Interview Questions
+1️⃣ Where does an Angular application start? Explain the bootstrap process.
+2️⃣ What is Server-Side Rendering (SSR)? Why is it used, and how do you implement it?
+3️⃣ How do you implement Route Guards in Angular?
+4️⃣ What challenges did you face while migrating an application from Angular 14 to Angular 17?
+5️⃣ What are the key features introduced in Angular 17?
+6️⃣ What is a Standalone Component? Why was it introduced?
+7️⃣ How do you optimize performance while rendering large datasets?
+8️⃣ How do you pass data between unrelated components?
+9️⃣ How do you store and share common data across the entire application?
+🔟 How would you handle 10 dependent API calls using RxJS?
+1️⃣1️⃣ Explain the difference between Subject and BehaviorSubject.
+1️⃣2️⃣ Explain the difference between Template-Driven Forms and Reactive Forms.
+1️⃣3️⃣ What is Dependency Injection (DI) in Angular?
+1️⃣4️⃣ What are Providers in Angular? What are the different ways to provide a service?
+Coding Challenges
+💻 Write a custom Title Case Pipe.
+💻 Write code for Parent-to-Child and Child-to-Parent communication using @Input() and @Output().
+💡 Key Takeaway:
+The interview focused on Angular fundamentals, real-world application architecture, RxJS, Dependency Injection, performance optimization, Angular migration experience, and hands-on coding tasks. It was a good mix of conceptual questions and practical implementation.
+Hope this helps fellow developers preparing for Angular/Frontend interviews. Feel free to share your interview questions in the comments!

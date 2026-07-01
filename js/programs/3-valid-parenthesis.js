@@ -12,5 +12,5 @@ function isValid(s) {
 }
 // Time: O(n)  Space: O(n)
 
-const s = "()[]{}";
+const s = "()[[]]{}";
 console.log(isValid(s)); // Output: true
