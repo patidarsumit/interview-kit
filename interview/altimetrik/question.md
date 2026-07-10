@@ -1,18 +1,15 @@
 1. Angular 19 features, ng-zone
 2. Angular application Migration and procedures
-3. Microfrontend architecture with ngrx 
-4. ngModel example with ngClass 
-5. Anagram matching and time complexity 
-6. Count the repeated characters in a string (Input: babacdcb || Output  b:3, a:2, c:2,d:1)
+3. Microfrontend architecture with ngrx
+4. ngModel example with ngClass
+5. Anagram matching and time complexity
+6. Count the repeated characters in a string (Input: babacdcb || Output b:3, a:2, c:2,d:1)
 7. Separate the Duplicates from an unsorted array
-Can you explain object-oriented programming concepts related to oops?
-How familiar are you with prototype-based inheritance in JavaScript?
-What do you understand about hoisting in JavaScript?
-Can you explain Kadane's algorithm?
-Can you implement a function to reverse a string?
-
-
-
+   Can you explain object-oriented programming concepts related to oops?
+   How familiar are you with prototype-based inheritance in JavaScript?
+   What do you understand about hoisting in JavaScript?
+   Can you explain Kadane's algorithm?
+   Can you implement a function to reverse a string?
 
 Interview Questions:
 1️⃣ Introduce yourself.
@@ -28,11 +25,14 @@ On hover, open/display the Google website inside the rectangle.
 8️⃣ How do you measure a web page's performance, and what techniques do you use to improve it?
 9️⃣ How do you make a web page responsive?
 
-
 # Interview Preparation — Senior Angular Developer (L4) - Part 1
+
 ---
+
 ## 1. Angular Core & Architecture
+
 ### Conceptual
+
 1. Explain the Angular application bootstrap process — from `main.ts` to the first painted component.
 2. What is the difference between `NgModule`-based architecture and Standalone Components (Angular 14+)? When would you prefer one over the other?
 3. How does Angular's **Dependency Injection** hierarchy work? Explain `providedIn: 'root'` vs module-level vs component-level providers.
@@ -45,6 +45,7 @@ On hover, open/display the Google website inside the rectangle.
 10. Explain **Lazy Loading** — how does it work internally and what are the performance implications?
 
 ### Scenario-Based
+
 11. You have a deeply nested component tree with frequent re-renders affecting performance. Walk through your diagnosis and optimization strategy.
 12. A component is not updating its view even though the data has changed. What are the likely causes and how do you debug them?
 13. How would you architect a **shared component library** that can be consumed across multiple Angular projects in a monorepo?
@@ -54,6 +55,7 @@ On hover, open/display the Google website inside the rectangle.
 ## 2. TypeScript
 
 ### Conceptual
+
 1. What are **Generics** in TypeScript and how do you use them in Angular services and components?
 2. Explain the difference between `interface` and `type` in TypeScript. When would you prefer one?
 3. What are **Decorators** in TypeScript? How does Angular leverage them?
@@ -64,10 +66,9 @@ On hover, open/display the Google website inside the rectangle.
 8. Explain `ReturnType<T>`, `Parameters<T>`, and `InstanceType<T>` utility types.
 
 ### Scenario-Based
+
 9. A colleague's PR uses `as any` extensively to bypass type errors. How do you approach the code review and what alternatives do you suggest?
 10. How would you model a discriminated union for an API response that can be either `{ status: 'success', data: User }` or `{ status: 'error', message: string }`?
-
-
 
 JavaScript
 ✅ Closures & Lexical Scope
@@ -104,7 +105,6 @@ HTML & CSS
 ✅ CSS Specificity
 ✅ Accessibility (ARIA, Keyboard Navigation)
 
-
 1. What is ngOnInit()?
 2. Explain @ViewChild and @ViewChildren.
 3. Explain ViewChild and ViewChildren from the rendering perspective.
@@ -114,14 +114,14 @@ HTML & CSS
 7. Explain the Set-based pair-finding program.
 8. Explain the pair-finding logic verbally.
 9. What is the output of:
-let arr = [1,2,3];
-arr[10] = 5;
+   let arr = [1,2,3];
+   arr[10] = 5;
 10. Explain why arr.length becomes 11.
 11. What is the output of:
-'5' + 1
-'5' - 1
-'5' + true
-'5' - true
+    '5' + 1
+    '5' - 1
+    '5' + true
+    '5' - true
 
 12. What is Subject in Angular?
 13. Types of Subjects.
@@ -138,7 +138,6 @@ arr[10] = 5;
 24. What is ApplicationRef.tick() in Angular?
 25. What is tick() in Angular unit testing?
 26. What is TestBed in Angular unit testing?
-
 
 Interview Questions
 1️⃣ Where does an Angular application start? Explain the bootstrap process.
@@ -161,3 +160,43 @@ Coding Challenges
 💡 Key Takeaway:
 The interview focused on Angular fundamentals, real-world application architecture, RxJS, Dependency Injection, performance optimization, Angular migration experience, and hands-on coding tasks. It was a good mix of conceptual questions and practical implementation.
 Hope this helps fellow developers preparing for Angular/Frontend interviews. Feel free to share your interview questions in the comments!
+
+Dependecy Injector (flow)
+change detection strategy
+useclass vs usevalue vs useexisting vs usefactory
+rxjs workflow
+signal computed effects,tooberservable toSignal
+provide multi
+search
+rxjs operators
+flex vs Grid
+
+1. Difference between map and forEach
+2. Difference between var, let and const
+3. Explain hoisting
+4. Angular Building blocks
+5. Difference between constructor and ngOnInit
+6. Explain Angular lifecycle hooks
+7. How components communicate with each other
+8. Difference between Angular 15 and Angular 19. What major changes came after Angular 15?
+9. Why do we write API call logic in service files instead of component.ts?
+10. If you are starting a new Angular project, how would you set up the folder structure?
+11. What is Nx?
+12. Difference between reactive forms and template-driven forms
+13. Difference between setValue and patchValue
+14. Explain Signals and their types
+15. What is the use of effect in Signals?
+16. In which scenario would you use effect and when does it execute?
+    Performance
+17. Explain debouncing in Angular and how to achieve it
+18. How do you check if there is a memory leak in an Angular application?
+19. Explain CSS box model
+20. Difference between px, em and rem
+21. How would you restrict access for different users?
+    Supervisor has full access but Operator can access only their own account.
+22. Can we create HTML elements from a custom directive?
+23. In a banking application, card numbers should display only the last 4 digits while masking the remaining digits. How would you implement this?
+24. Explain one challenge you faced in your project.
+25. Do you have experience writing test case using cypress or Jasmin karma
+26. What is need to writing test cases ? just for passing required Coverage or any other reason
+27. Are you using any AI assisted coding agent for daily Development
